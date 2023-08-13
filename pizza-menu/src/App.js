@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className='container'>
     <h1>react app</h1>
     <Header/>
     <Menu/>
@@ -22,26 +22,36 @@ function Pizza (){
   )
 }
 function Header(){
+  // const style={color:'red',fontSize:'48px',textTransform:'uppercase'}
+  const style={}
   return(
-    <h1>Fusion Bites Pizza Co.</h1>
+    <header className='header'>
+
+    <h1 style={style}>Fusion Bites Pizza Co.</h1>
+    </header>
   )
 }
 function Footer(){
+  const hour=new Date().getHours();
+  const openHour=8;
+  const closeHour=18;
+  const isopen=hour >= openHour && hour <=closeHour;
+  console.log(isopen)
   return(
-    <footer>{new Date().toLocaleTimeString()}we are currently open</footer>
+    <footer className='footer'>{new Date().toLocaleTimeString()}we are currently open</footer>
   )
 }
 
 function Menu(){
   return (
-    <div>
+    <main className='menu'>
     <h2>our menu</h2>
     <Pizza/>
     <Pizza/>
     <Pizza/>
     <Pizza/>
     <Pizza/>
-    </div>
+    </main >
   )
 }
 export default App;
