@@ -7,12 +7,20 @@ function App() {
     <div>
     <h1>react app</h1>
     <Pizza/>
+    <Pizza/>
+    <Pizza/>
+    <Pizza/>
+    <Pizza/>
     </div>
   );
 }
 function Pizza (){
   return(
-    <h1>pizaa fusion</h1>
+    <div>
+    <img src="pizzas/prosciutto.jpg" class="img-fluid rounded-top" alt="focaccia."/>
+    <h1>Pizza Salamino</h1>
+    <p>Tomato, mozarella, and pepperoni</p>
+  </div>
   )
 }
 export default App;
