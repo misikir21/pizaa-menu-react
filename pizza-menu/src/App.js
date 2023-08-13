@@ -74,9 +74,17 @@ function Footer(){
   const isopen=hour >= openHour && hour <=closeHour;
   console.log(isopen)
   return(
-    <footer className='footer'>{new Date().toLocaleTimeString()}we are currently open</footer>
+    <footer className='footer'>
+      {isopen &&(
+        <div className='order'>
+          <p>we are open until {closeHour}:00,come visit use or order online</p>
+         <button className='btn'>Order</button>
+          
+        </div>
+      )}
+    </footer>
   )
-}
+ }
 
 function Menu(){
   return (
