@@ -69,55 +69,63 @@ function Header(){
 }
 function Footer(){
   const hour=new Date().getHours();
-  const openHour=8;
-  const closeHour=18;
+  const openHour=10;
+  const closeHour=22;
   const isopen=hour >= openHour && hour <=closeHour;
   console.log(isopen)
   return(
     <footer className='footer'>
-      {isopen &&(
+      {isopen ?(
         <div className='order'>
           <p>we are open until {closeHour}:00,come visit use or order online</p>
          <button className='btn'>Order</button>
           
         </div>
-      )}
+      ):
+        <p>we are happy to welcome you between {openHour} and {closeHour}</p>
+    }
     </footer>
   )
  }
 
-function Menu(){
-  const pizzas=[];
+function Menu(Pizzaobj){
+  const pizzas=pizzaData;
   const numpizzas=pizzas.length;
   return (
+    <>
+      
+    <p>
+      this is the palce where you eat well and healthe  without breaking the bank and actual cost affodablity is out mantra
+    </p>
     <main className='menu'>
     <h2>our menu</h2>
     {numpizzas >0? (<ul className='pizzas'>
       {pizzaData.map((pizza)=>(
         <Pizza Pizzaobj={pizza} key={pizza.name}/>
-      ))}
+        ))}
     </ul>):(
       <p>we are still building the menu please come back</p>
-    )
+      )
 }
     {/* <Pizza 
     name="Pizza Salamino"
     ingredeints="Tomato, mozarella, and pepperoni"
     photoname='pizzas/prosciutto.jpg'
     price={10}
-    /> */}
+  /> */}
  </main >
+  </>
   )
 }
 
-function Pizza (props){
+function Pizza ({Pizzaobj}){
   return(
     <li className="pizza"> 
-    <img src={props.Pizzaobj.photoName} alt={props.Pizzaobj.name}/>
+    <img src={Pizzaobj.photoName} alt={Pizzaobj.name}/>
     <div>
-     <h1>{props.Pizzaobj.name}</h1>
-    <p>{props.Pizzaobj.ingredients}</p>
-    <span>{props.Pizzaobj.price}</span>
+     <h1>{Pizzaobj.name}</h1>
+    <p>{Pizzaobj.ingredients}</p>
+    <span>{Pizzaobj.price}</span>
     </div>
  
   </li>
