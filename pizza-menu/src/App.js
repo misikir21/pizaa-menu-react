@@ -1,6 +1,5 @@
 
 import logo from './logo.svg';
-import React from 'react';
 import './App.css';
 const pizzaData = [
   {
@@ -93,15 +92,15 @@ function Menu(Pizzaobj){
   const pizzas=pizzaData;
   const numpizzas=pizzas.length;
   return (
+    <div>
+      
+    
     <main className='menu'>
     <h2>our menu</h2>
-    {numpizzas >0? (
-    <React.Fragment>
-      
     <p>
       this is the palce where you eat well and healthe  without breaking the bank and actual cost affodablity is out mantra
     </p>
-    <ul className='pizzas'>
+    {numpizzas >0? (<ul className='pizzas'>
       {pizzaData.map((pizza)=>(
         <Pizza Pizzaobj={pizza} key={pizza.name}/>
         ))}
@@ -116,19 +115,19 @@ function Menu(Pizzaobj){
     price={10}
   /> */}
  </main >
-  </React.Fragment>
+  </div>
   )
 }
 
 function Pizza ({Pizzaobj}){
   return(
-    <li className="pizza"> 
+    <li className={`pizza ${Pizzaobj.soldOut?'sold-out':''}`}> 
     <img src={Pizzaobj.photoName} alt={Pizzaobj.name}/>
     <div>
      <h1>{Pizzaobj.name}</h1>
     <p>{Pizzaobj.ingredients}</p>
     <span>{Pizzaobj.price}</span>
-    <span>{Pizzaobj.soldOut}</span>
+    <span>{Pizzaobj.soldOut?"sold out":Pizzaobj.price}</span>
     </div>
  
   </li>
